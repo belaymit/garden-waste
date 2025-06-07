@@ -31,8 +31,8 @@ export type SkipCategoryProps = {
 
 export type SkipCardProps ={
   skip: T_List;
-  isSelected: boolean;
-  onSelect: (id: number) => void;
+  isSelected?: boolean;
+  onSelect?: (id: number) => void;
 }
 
 export const skipImages = [ga_w01, ga_w03];

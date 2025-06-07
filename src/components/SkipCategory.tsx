@@ -14,7 +14,9 @@ export default function SkipCategory ({ skips, title }: SkipCategoryProps) {
       </Title>
       <Row gutter={[16, 16]} justify="center">
         {skips.map((skip) => (
-          <SkipCards key={skip.id} skip={skip} />
+          <SkipCards 
+          key={skip.id} 
+          skip={skip} />
         ))}
       </Row>
     </div>

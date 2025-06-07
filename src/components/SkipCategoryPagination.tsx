@@ -9,7 +9,7 @@ export default function SkipCategoryPagination ({
   itemsPerPage = 3 
 }: SkipCategoryPaginationProps) {
   const [currentPage, setCurrentPage] = useState(0);
-    const [selectedSkipId, setSelectedSkipId] = useState<number | null>(null);
+  const [selectedSkipId, setSelectedSkipId] = useState<number | null>(null);
   
   if (skips.length === 0) return null;
 

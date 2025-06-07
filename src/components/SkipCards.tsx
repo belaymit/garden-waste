@@ -3,11 +3,12 @@ import { ShoppingCartOutlined, CheckOutlined } from '@ant-design/icons';
 import type { SkipCardProps } from '../types/listTypes';
 
 const { Text } = Typography;
-
 export default function SkipCards({ skip, isSelected, onSelect }: SkipCardProps)  {
 
-    const handleSelect = () => {
+  const handleSelect = () => {
+     if (onSelect) {
     onSelect(skip.id);
+  }
     console.log('Selected Skip:', {
       id: skip.id,
       size: skip.size,
