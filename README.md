@@ -1,39 +1,6 @@
 <a name="readme-top"></a>
 
-<!--
-!!! IMPORTANT !!!
-This README is an example of how you could professionally present your codebase. 
-Writing documentation is a crucial part of your work as a professional software developer and cannot be ignored. 
-
-You should modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
-
-After you're finished please remove all the comments and instructions!
-
-For more information on the importance of a professional README for your repositories: https://github.com/microverseinc/curriculum-transversal-skills/blob/main/documentation/articles/readme_best_practices.md
--->
-
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  <h3><b>Microverse README Template</b></h3>
 
 </div>
 
@@ -51,60 +18,73 @@ For more information on the importance of a professional README for your reposit
   - [Setup](#setup)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
   - [Deployment](#deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
+- 
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 Garden Waste Skip Hire <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
+**Garden Waste Skip Hire** is a React-based web application that helps users find and book appropriate skips for garden waste disposal in their area. The application displays available skips categorized by size with detailed pricing and specifications.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
 
 <details>
   <summary>Client</summary>
   <ul>
     <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
+    <li><a href="https://ant.design/">Ant Design</a></li>
+    <li><a href="https://react-icons.github.io/react-icons/">React Icons</a></li>
   </ul>
-</details>
 
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
 </details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
-
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
+- **Dual View Modes**: Toggle between card and table views
+- **Unified Selection System**: Select items in either view with consistent state management
+- **Type-Safe Architecture**: Comprehensive TypeScript definitions
+- **Custom Theme**: Theme configuration with styled-components
+- **Efficient Data Fetching**: Custom hook for API data management
+- **Responsive Design**: Works across all device sizes
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+### Implementation Approach <a name="implementation-approach"></a>
+
+1. **Type Definitions**:
+   - Created comprehensive type definitions in `src/types/listTypes.ts`
+   - Includes interfaces for Skip, SkipCardProps, SkipTableProps, etc.
+
+2. **View Components**:
+   - `SkipCards.tsx`: Card view component with visual selection
+   - `SkipTable.tsx`: Table view component with row selection capability
+   - Shared selection state between both views
+
+3. **State Management**:
+   - Context API for global selection state
+   - Custom `useFetchSkips` hook for data fetching and caching
+   - Selection state persists when switching between views
+
+4. **Theme Configuration**:
+   - Theme variables in `src/utils/theme.ts`
+   - Responsive breakpoints and color palette
+   - Consistent styling across both views
+
+5. **Assets Management**:
+   - Organized assets in `src/assets/`
+   - Optimized skip images
+   - SVG icons for UI elements
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -114,7 +94,7 @@ For more information on the importance of a professional README for your reposit
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://google.com)
+- [Live Demo Link](https://rococo-mandazi-949430.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -122,83 +102,48 @@ For more information on the importance of a professional README for your reposit
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
+- Node.js (v16 or higher)
+- npm or yarn
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
 
 ### Setup
 
-Clone this repository to your desired folder:
-
-<!--
-Example commands:
 
 ```sh
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git@github.com:username/garden-waste.git
+
 ```
---->
 
 ### Install
 
-Install this project with:
-
-<!--
-Example command:
-
 ```sh
-  cd my-project
-  gem install
+  cd garden-waste
+  npm install
+  # or
+  yarn install
 ```
---->
 
 ### Usage
 
-To run the project, execute the following command:
-
-<!--
-Example command:
 
 ```sh
-  rails server
+  npm run dev
+  # or
+  yarn dev
 ```
---->
-
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
 
 ### Deployment
 
-You can deploy this project using:
-
-<!--
-Example:
-
 ```sh
-
+  npm run build
+  # Then deploy the build folder to your preferred hosting service
 ```
- -->
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -206,19 +151,11 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+👤 **Belay B. Gibina**
 
-👤 **Author1**
+- GitHub: [@githubhandle](https://github.com/belaymit)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/belay-bgwa/)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -226,12 +163,11 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
+- Advanced Filtering: Add filters for skip size, price range, and availability
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- Booking System: Implement a complete booking flow
 
+- User Accounts: Add authentication and booking history
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
@@ -240,7 +176,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/belaymit/garden-waste/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -248,9 +184,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project, please considering give it a star ⭐️
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -264,19 +198,6 @@ I would like to thank...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -284,8 +205,7 @@ I would like to thank...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
 
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
