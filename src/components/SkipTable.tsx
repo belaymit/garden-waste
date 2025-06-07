@@ -87,8 +87,11 @@ export default function SkipTable({ data }: SkipTableProps) {
           marginBottom: 16 
         }}>
           {selectedRowKeys?.length > 0 && (
-            <Button type="primary" style={{ marginRight: 8 }}>
-              {selectedRowKeys.length} {selectedRowKeys.length > 1 ? 'rows' : 'row'} selected
+            <Button 
+              className="skip-continue-button"
+              onClick={() => console.log('Continue with selected skips:', selectedRowKeys)}
+              style={{ marginRight: 8 }}>
+              Continue
             </Button>
           )}
           {selectedRowKeys?.length ===0 && <div/>}
