@@ -192,9 +192,7 @@ If you like this project, please considering give it a star ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+I would like to thank the project owners
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
