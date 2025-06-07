@@ -94,7 +94,7 @@
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://rococo-mandazi-949430.netlify.app/)
+- [Live Demo Link](https://deluxe-khapse-cefae7.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
