@@ -1,5 +1,5 @@
 import { Card, Row, Col, Button, Tag } from 'antd';
-import { ShoppingCartOutlined, CheckOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined, CheckOutlined } from '@ant-design/icons';
 import type { SkipCardProps } from '../types/listTypes';
 import { useMediaQuery } from "react-responsive";
 import { useAppDispatch } from "../store/hooks/hooks";
@@ -95,7 +95,7 @@ export default function SkipCards({ skip, isSelected, onSelect }: SkipCardProps)
                   marginTop: 8
                 }}
                 type={isSelected ? "primary" : "default"}
-                 icon={!isSelected ? <ShoppingCartOutlined /> : null}
+                 icon={!isSelected ? <ArrowRightOutlined /> : null}
                  onClick={(e) => {
                   e.stopPropagation(); 
                   handleSelect();
