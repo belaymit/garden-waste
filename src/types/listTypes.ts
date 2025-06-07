@@ -22,11 +22,15 @@ export type SkipCategoryPaginationProps = {
   skips: T_List[];
   title: string;
   itemsPerPage?: number;
+  selectedSkipId: number | null;
+  onSelect: (id: number) => void;
 }
 
 export type SkipCategoryProps = {
   skips: T_List[];
   title: string;
+  selectedSkipId: number | null;
+  onSelect: (id: number) => void;
 }
 
 export type SkipCardProps ={

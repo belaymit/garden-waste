@@ -1,15 +1,19 @@
-import { Card, Row, Col, Typography, Button, Tag } from 'antd';
+import { Card, Row, Col, Button, Tag } from 'antd';
 import { ShoppingCartOutlined, CheckOutlined } from '@ant-design/icons';
 import type { SkipCardProps } from '../types/listTypes';
+import { useMediaQuery } from "react-responsive";
+import { useAppDispatch } from "../store/hooks/hooks";
+import { setSkip } from "../store/slices/storeSkipsSlices";
 
-const { Text } = Typography;
 export default function SkipCards({ skip, isSelected, onSelect }: SkipCardProps)  {
+  const isMobile = useMediaQuery({ maxWidth: 992 });
+  const dispatch = useAppDispatch();
 
   const handleSelect = () => {
      if (onSelect) {
     onSelect(skip.id);
   }
-    console.log('Selected Skip:', {
+    const selectedSkip = {
       id: skip.id,
       size: skip.size,
       price: skip.price_before_vat,
@@ -17,11 +21,18 @@ export default function SkipCards({ skip, isSelected, onSelect }: SkipCardProps)
       hirePeriod: skip.hire_period_days,
       allowsHeavyWaste: skip.allows_heavy_waste,
       allowedOnRoad: skip.allowed_on_road
-    });
+    };
+
+    dispatch(setSkip(selectedSkip));
+
+    console.log('Selected Skip:', selectedSkip);
   };
 
   return (
-    <Card style={{
+    <Card 
+       onClick={handleSelect}
+       hoverable
+      style={{
         border: isSelected ? '1px solid rgb(201, 131, 132)' : "1px solid #D9D9D9",
         transition: 'border 0.3s ease',
         borderRadius: 8,
@@ -61,9 +72,9 @@ export default function SkipCards({ skip, isSelected, onSelect }: SkipCardProps)
                 {skip.allows_heavy_waste ? ' Suitable for heavy waste.' : ' Not suitable for heavy waste.'}
               </span>
               <div style={{ marginTop: 8 }}>
-                <Text type="secondary">
-                  {skip.allowed_on_road ? 'Can be placed on road.' : 'Cannot be placed on road.'}
-                </Text>
+               <Tag color={skip.allowed_on_road ? '#92e2a5' : '#c46b99'}>
+                  {skip.allowed_on_road ? 'Can be placed on road' : 'Cannot be placed on road'}
+                </Tag>
               </div>
             </div>
         </Col>
@@ -85,10 +96,13 @@ export default function SkipCards({ skip, isSelected, onSelect }: SkipCardProps)
                 }}
                 type={isSelected ? "primary" : "default"}
                  icon={!isSelected ? <ShoppingCartOutlined /> : null}
-                onClick={handleSelect}
+                 onClick={(e) => {
+                  e.stopPropagation(); 
+                  handleSelect();
+                }}
                 danger={isSelected}
-             >
-              {isSelected ? 'Selected' : 'Select'}
+              >
+                {isSelected ? 'Selected' : (isMobile ? 'Select' : 'Select the Skip')}
             </Button>
           </div>
         </Col>

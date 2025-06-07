@@ -53,6 +53,18 @@
   width: 100%;
 }
 
+.skip-continue-button {
+  background: #ff4405;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.skip-continue-button:hover {
+  background: #ff4405 !important;
+  color: #fff !important;
+  border: 1px solid #ff4405 !important;
+}
+
 @media only screen and (max-width: 768px) {
   .skip-price {
     flex-direction: row;

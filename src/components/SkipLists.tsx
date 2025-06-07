@@ -1,4 +1,4 @@
-import { Typography, Tabs } from "antd";
+import { Typography, Tabs, Button } from "antd";
 import type { TabsProps } from 'antd';
 import useFetchSkips from "../hooks/useFetchSkips";
 import type { T_List } from "../types/listTypes";
@@ -7,6 +7,8 @@ import SkipCategoryPagination from "./SkipCategoryPagination";
 import LoadingState from "./common/LoadingState";
 import '../styles/skips.css';
 import SkipTable from "./SkipTable";
+import { useState } from "react";
+import { useAppSelector } from "../store/hooks/hooks";
 
 const postcode = 'NR32';
 const area = 'Lowestoft';
@@ -14,7 +16,9 @@ const { Title } = Typography;
 
 export default function SkipLists() {
   const { skips, loading, error } = useFetchSkips(postcode, area);
-
+  const [selectedSkipId, setSelectedSkipId] = useState<number | null>(null);
+  const skip = useAppSelector(state => state.skips);
+  
   const categorizeSkips = (skips: T_List[]) => {
     return {
       small: {
@@ -32,6 +36,10 @@ export default function SkipLists() {
     };
   };
 
+  const handleSelect = (id: number) => {
+    setSelectedSkipId(prevId => prevId === id ? null : id);
+  };
+
 const categorizedSkips = categorizeSkips(skips);
 
 const items: TabsProps['items'] = [
@@ -43,16 +51,22 @@ const items: TabsProps['items'] = [
         <SkipCategoryPagination
           skips={categorizedSkips.small.skips} 
           title={categorizedSkips.small.title} 
+          selectedSkipId={selectedSkipId}
+          onSelect={handleSelect}
         />
         
         <SkipCategoryPagination 
           skips={categorizedSkips.medium.skips} 
           title={categorizedSkips.medium.title} 
+          selectedSkipId={selectedSkipId}
+          onSelect={handleSelect}
         />
         
         <SkipCategoryPagination 
           skips={categorizedSkips.large.skips} 
           title={categorizedSkips.large.title} 
+          selectedSkipId={selectedSkipId}
+          onSelect={handleSelect}
         />
       </>
       ),
@@ -65,6 +79,7 @@ const items: TabsProps['items'] = [
     }
   ];
 
+   const isSkipSelected = skip.id !== 0;
 
   if(error) return <ServerError/>
 
@@ -74,11 +89,21 @@ const items: TabsProps['items'] = [
         Available Skips in {postcode} ({area})
       </Title>
       {loading ? <LoadingState/> :
-        <Tabs 
-          defaultActiveKey="1" 
-          items={items} 
-          style={{ marginBottom: 32 }}
-        />
+        <Tabs
+         tabBarExtraContent={isSkipSelected ? (
+          <Button 
+            className="skip-continue-button"
+            onClick={() => {
+              console.log('Proceeding with skip:', skip);
+            }}
+          >
+            Continue
+          </Button>
+        ) : null}
+        defaultActiveKey="1"
+        items={items}
+        style={{ marginBottom: 32 }}
+      />
         }
     </div>
   )

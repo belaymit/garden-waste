@@ -4,7 +4,8 @@ import SkipCards from "./SkipCards";
 
 const { Title } = Typography;
 
-export default function SkipCategory ({ skips, title }: SkipCategoryProps) {
+export default function SkipCategory ({ skips, title, selectedSkipId, onSelect }: SkipCategoryProps) {
+
   if (skips.length === 0) return null;
 
   return (
@@ -15,8 +16,10 @@ export default function SkipCategory ({ skips, title }: SkipCategoryProps) {
       <Row gutter={[16, 16]} justify="center">
         {skips.map((skip) => (
           <SkipCards 
-          key={skip.id} 
-          skip={skip} />
+            key={skip.id}
+            isSelected={skip.id === selectedSkipId}
+            onSelect={onSelect}  
+            skip={skip} />
         ))}
       </Row>
     </div>

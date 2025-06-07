@@ -6,10 +6,11 @@ import type { SkipCategoryPaginationProps } from '../types/listTypes';
 export default function SkipCategoryPagination ({ 
   skips, 
   title, 
+  onSelect,
+  selectedSkipId,
   itemsPerPage = 3 
 }: SkipCategoryPaginationProps) {
   const [currentPage, setCurrentPage] = useState(0);
-  const [selectedSkipId, setSelectedSkipId] = useState<number | null>(null);
   
   if (skips.length === 0) return null;
 
@@ -17,8 +18,6 @@ export default function SkipCategoryPagination ({
   const startIndex = currentPage * itemsPerPage;
   const visibleSkips = skips.slice(startIndex, startIndex + itemsPerPage);
   const hasMore = currentPage < totalPages - 1;
-
-   const handleSelect = (id: number) => setSelectedSkipId(prevId => prevId === id ? null : id);
 
   return (
     <div style={{ marginBottom: 32 }}>
@@ -35,7 +34,7 @@ export default function SkipCategoryPagination ({
                 key={skip.id} 
                 skip={skip}
                 isSelected={selectedSkipId === skip.id}
-                onSelect={handleSelect}
+                onSelect={onSelect}
                 />
             ))
           ) : null}
